@@ -1,414 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Harpreet Singh's Quantum Computing Lab</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Arial', 'Helvetica', sans-serif;
-            background-color: #FFFFFF;
-            color: #333333;
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        h1, h2, h3 {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            color: #003262;
-            font-weight: bold;
-        }
-        h1 { font-size: 32px; }
-        h2 { font-size: 24px; }
-        h3 { font-size: 18px; }
-        a {
-            color: #FDB515;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #C4820E;
-            text-decoration: underline;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantum Lab | GNDU Amritsar | Harpreet Singh</title>
+<!-- CSS will go here -->
+<style>
+/* CSS styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #FFFFFF;
+    color: #212529;
+    font-size: 17px;
+    line-height: 1.7;
+}
 
-        /* Reusable Structural Elements */
-        .site-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #003262;
-        }
-        .site-header h1 { margin: 0; }
-        .site-header .pi-info {
-            font-size: 14px;
-            color: #555;
-            text-align: right;
-        }
-        .main-layout {
-            display: flex;
-            gap: 20px;
-        }
-        .main-content {
-            width: 70%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .sidebar { width: 30%; }
-        .navigation ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .navigation li { margin-bottom: 10px; }
-        .navigation a { font-size: 18px; cursor: pointer; }
-        .navigation .active {
-            font-weight: bold;
-            color: #003262;
-        }
-        .site-footer {
-            border-top: 1px solid #ccc;
-            padding-top: 15px;
-            margin-top: 30px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-        }
-        .credit {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 14px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 15px;
-            border-radius: 4px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .credit a {
-            color: #003262;
-            text-decoration: none;
-            font-weight: 500;
-        }
+/* Container for centering content */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        /* Page Content Sections */
-        .page-content { display: none; }
-        .page-content.active-page { display: block; }
-        .page-content:focus {
-            outline: 2px solid #FDB515;
-            outline-offset: 4px;
-        }
+/* Header styles */
+header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.group-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003262;
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #003262;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #FDB515;
+}
+
+nav a.active {
+    color: #FDB515;
+    font-weight: bold;
+}
+
+/* Hero section styles */
+.hero {
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.6)),
+    url('https://placehold.co/1600x600/e0e8f9/333333?text=Quantum+Research') no-repeat center center;
+    background-size: cover;
+    color: #003262;
+    padding: 60px 0;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.hero h1 {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    margin: 0 0 20px;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Content views */
+.content-view {
+    display: none;
+    padding: 60px 0;
+}
+
+.content-view h2 {
+    font-family: 'Georgia', serif;
+    color: #003262;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FDB515;
+}
+
+/* Research section */
+.research-project {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.research-project:last-child {
+    border-bottom: none;
+}
+
+.research-project h3 {
+    font-family: 'Georgia', serif;
+    color: #003262;
+    margin-top: 0;
+}
+
+.research-project img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Team section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.team-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.team-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FDB515;
+    margin-bottom: 15px;
+}
+
+.team-card h4 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #003262;
+}
+
+.team-card p {
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+.team-card .role {
+    font-style: italic;
+    color: #555;
+}
 
 
-        /* Home Page Styles */
-        #home img.full-width {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        .sidebar-section { margin-top: 30px; }
-        .sidebar-section ul {
-            list-style-type: none;
-            padding-left: 0;
-            font-size: 14px;
-        }
-        .sidebar-section li {
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
+/* Publications section */
+.publications-list {
+    margin-top: 30px;
+}
 
-        /* Research Page Styles */
-        .research-project {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            overflow: hidden;
-        }
-        .research-project:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        .research-project img {
-            float: right;
-            margin-left: 20px;
-            margin-bottom: 10px;
-            width: 200px;
-            height: auto;
-            border-radius: 4px;
-        }
-        .research-project p { text-align: justify; }
+.publications-list h3 {
+    margin: 0 0 20px;
+    color: #003262;
+    font-family: 'Georgia', serif;
+}
 
-        /* Publications Page Styles */
-        #publications ol {
-            list-style-type: decimal;
-            padding-left: 20px;
-        }
-        #publications li {
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        #publications h3 {
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-        #publications li strong { color: #003262; }
+.publications-list ol {
+    padding-left: 20px;
+}
 
-        /* Members Page Styles */
-        .member-section h3 {
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-        .member-block {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            align-items: flex-start;
-        }
-        .member-block img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .member-info .name {
-            font-weight: bold;
-            font-size: 18px;
-            color: #003262;
-            margin: 0;
-        }
-        .member-info .title {
-            font-style: italic;
-            color: #555;
-            margin: 0 0 10px;
-        }
-        .member-info p { margin: 0 0 5px; }
+.publications-list li {
+    margin-bottom: 15px;
+}
 
-        /* Contact Page Styles */
-        .contact-info ul {
-            list-style: none;
-            padding: 0;
-        }
-        .contact-info li { margin-bottom: 10px; }
-        .map-container {
-            margin-top: 30px;
-            width: 100%;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 300px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-    </style>
+/* Contact section */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info p {
+    margin: 0 0 15px;
+}
+
+.map-container {
+    position: relative;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f8f8f8;
+    color: #555;
+    padding: 30px 0;
+    margin-top: 60px;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}
+
+/* "Made with love" badge */
+.made-with-love {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #003262;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.made-with-love a {
+    color: #FDB515;
+    text-decoration: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav {
+        margin-top: 15px;
+        text-align: center; /* This centers the links */
+        width: 100%; /* Make nav full width to allow text-align to work */
+    }
+    nav a {
+        margin: 10px 15px; /* Symmetrical margin for better centered appearance */
+        display: inline-block;
+    }
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    .group-name {
+        text-align: center;
+    }
+}
+</style>
 </head>
 <body>
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="header-content">
+            <h1 class="group-name">Dr. Harpreet Singh's Quantum Lab</h1>
+            <nav>
+                <a href="#home-view" class="active">Home</a>
+                <a href="#research-view">Research</a>
+                <a href="#team-view">Team</a>
+                <a href="#publications-view">Publications</a>
+                <a href="#contact-view">Contact</a>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- Main content container -->
+<div class="container">
+    <!-- Home View -->
+    <div id="home-view" class="content-view">
+        <div class="hero">
+            <h1>Exploring the Frontiers of Quantum Science</h1>
+            <p>We are a theoretical and experimental research group at the Department of Physics, Guru Nanak Dev University, Amritsar.</p>
+        </div>
+        <h2>Welcome to the Quantum Optics & Quantum Information Lab</h2>
+        <p>Our research group, led by Dr. Harpreet Singh, is dedicated to exploring the fundamental principles of quantum mechanics and their applications in next-generation technologies. We focus on areas such as quantum entanglement, quantum computing, secure communication, and precision measurements.</p>
+        <p>Our interdisciplinary approach combines rigorous theoretical modeling with cutting-edge experimental techniques. We aim to tackle some of the most profound questions in modern physics and contribute to the development of quantum technologies that will shape the future.</p>
+        <p>Our laboratory is equipped with state-of-the-art instrumentation for quantum optics research. We collaborate extensively with national and international researchers to foster a vibrant and comprehensive scientific environment. Whether you're a prospective student, a research partner, or simply curious about our work, we invite you to explore our website.</p>
+    </div>
+    <!-- Research View -->
+    <div id="research-view" class="content-view">
+        <h2>Our Research</h2>
+        <div class="research-project">
+            <h3>Quantum Entanglement & Bell's Inequalities</h3>
+            <img src="https://placehold.co/800x400/003262/FFFFFF?text=Quantum+Entanglement" alt="Quantum Entanglement">
+            <p>We investigate the non-local properties of quantum mechanics through the study of entangled photon pairs. Our experiments aim to test the foundations of quantum theory against local realistic models by violating Bell's inequalities with high statistical significance. This research is crucial for understanding the nature of reality and for developing protocols in quantum information processing.</p>
+        </div>
+        <div class="research-project">
+            <h3>Quantum Cryptography & Secure Communication</h3>
+            <img src="https://placehold.co/800x400/003262/FFFFFF?text=Quantum+Cryptography" alt="Quantum Cryptography">
+            <p>Harnessing the principles of quantum mechanics, we are developing and implementing quantum key distribution (QKD) protocols. Our goal is to create unconditionally secure communication channels, immune to eavesdropping attacks. We are working on both fiber-based and free-space QKD systems for practical applications.</p>
+        </div>
+        <div class="research-project">
+            <h3>Theoretical & Computational Quantum Physics</h3>
+            <img src="https://placehold.co/800x400/003262/FFFFFF?text=Computational+Physics" alt="Computational Physics">
+            <p>Our theoretical work focuses on modeling complex quantum systems and designing novel quantum algorithms. Using advanced computational techniques, we simulate the behavior of quantum materials and explore the dynamics of quantum information. This synergy between theory and computation guides our experimental investigations and opens new avenues for discovery.</p>
+        </div>
+    </div>
+    <!-- Team View -->
+    <div id="team-view" class="content-view">
+        <h2>Meet the Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://placehold.co/200x200/EEEEEE/333333?text=Dr.+H.+Singh" alt="Dr. Harpreet Singh">
+                <h4>Dr. Harpreet Singh</h4>
+                <p class="role">Principal Investigator</p>
+                <p>Dr. Singh leads the research group with expertise in quantum optics, quantum information, and foundational quantum mechanics. He is passionate about mentoring the next generation of physicists.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://placehold.co/200x200/EEEEEE/333333?text=Dr.+A.+Kaur" alt="Dr. Anjali Kaur">
+                <h4>Dr. Anjali Kaur</h4>
+                <p class="role">Postdoctoral Researcher</p>
+                <p>Dr. Kaur's research focuses on experimental quantum cryptography and the development of single-photon sources. She brings valuable expertise in optical engineering.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://placehold.co/200x200/EEEEEE/333333?text=R.+Sharma" alt="Rohan Sharma">
+                <h4>Rohan Sharma</h4>
+                <p class="role">PhD Scholar</p>
+                <p>Rohan is investigating decoherence mechanisms in open quantum systems. His work involves both theoretical modeling and experimental verification.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://placehold.co/200x200/EEEEEE/333333?text=P.+Verma" alt="Priya Verma">
+                <h4>Priya Verma</h4>
+                <p class="role">PhD Scholar</p>
+                <p>Priya's research is focused on testing foundational aspects of quantum mechanics, including contextuality and Bell's theorem, using entangled photons.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://placehold.co/200x200/EEEEEE/333333?text=S.+Patel" alt="Sameer Patel">
+                <h4>Sameer Patel</h4>
+                <p class="role">MSc Student</p>
+                <p>Sameer is working on the characterization of quantum detectors and their application in quantum communication protocols for his master's thesis.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://placehold.co/200x200/EEEEEE/333333?text=N.+Gupta" alt="Neha Gupta">
+                <h4>Neha Gupta</h4>
+                <p class="role">MSc Student</p>
+                <p>Neha is assisting in the development of a free-space quantum communication link between two buildings on the university campus.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Publications View -->
+    <div id="publications-view" class="content-view">
+        <h2>Selected Publications</h2>
+        <div class="publications-list">
+            <h3>2024</h3>
+            <ol>
+                <li>Verma, P.; Singh, H. "High-fidelity violation of the Bell-CHSH inequality using spontaneous parametric down-conversion", <i>Physical Review A</i> <strong>2024</strong>, <a href="#">110(1), 012345</a>.</li>
+                <li>Kaur, A.; Sharma, R.; Singh, H. "A robust free-space quantum key distribution system with active beam tracking", <i>Optics Express</i> <strong>2024</strong>, <a href="#">32(5), 6789-6801</a>.</li>
+            </ol>
+            <h3>2023</h3>
+            <ol>
+                <li>Sharma, R.; Singh, H. "Modeling environmental decoherence in a multi-qubit system", <i>Journal of Physics B: Atomic, Molecular and Optical Physics</i> <strong>2023</strong>, <a href="#">56(15), 155502</a>.</li>
+                <li>Singh, H.; Kaur, A. "Characterization of heralded single-photon sources for quantum networking", <i>Quantum Science and Technology</i> <strong>2023</strong>, <a href="#">8(3), 035001</a>.</li>
+            </ol>
+            <h3>2022</h3>
+            <ol>
+                <li>Singh, H. "Quantum contextuality and its role in quantum computation: A review", <i>Reviews of Modern Physics</i> <strong>2022</strong>, <a href="#">94(2), 025001</a>.</li>
+            </ol>
+        </div>
+    </div>
+    <!-- Contact View -->
+    <div id="contact-view" class="content-view">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p><strong>Dr. Harpreet Singh</strong><br>
+                Professor, Department of Physics<br>
+                Guru Nanak Dev University<br>
+                Amritsar, Punjab 143005, India</p>
+                <p><strong>Email:</strong> hsingh.phy@gndu.ac.in (Placeholder)</p>
+                <p><strong>Office:</strong> Room 204, Physics Block</p>
+                <p><strong>Prospective Students:</strong><br>
+                We welcome applications from motivated students interested in quantum physics. Please email your CV and a brief statement of interest. Openings are subject to availability and funding.</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.931123781201!2d74.8210358151532!3d31.63606398133221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39196413a539193b%3A0x673426e27a515024!2sGuru%20Nanak%20Dev%20University!5e0!3m2!1sen!2sin!4v1678886053302!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>© 2025 Quantum Lab | Guru Nanak Dev University, Amritsar</p>
+    </div>
+</footer>
+<!-- Made with love by Sitee -->
+<div class="made-with-love">
+    Made with love by <a href="https://www.sitee.in" target="_blank">sitee</a>
+</div>
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a');
+    const views = document.querySelectorAll('.content-view');
+    const header = document.querySelector('header');
 
-    <div class="container">
-        <header class="site-header">
-            <h1>Quantum Computing & Information Lab</h1>
-            <div class="pi-info">Dr. Harpreet Singh, Professor of Physics</div>
-        </header>
+    function showView(viewId) {
+        // Hide all views
+        views.forEach(view => {
+            view.style.display = 'none';
+        });
 
-        <div class="main-layout">
-            <main class="main-content">
-                <!-- Home Section -->
-                <section id="home" class="page-content active-page" tabindex="-1" aria-hidden="false">
-                    <img src="https://placehold.co/800x400/003262/FFFFFF?text=Quantum+Circuit" alt="A relevant research image on quantum computing" class="full-width">
-                    <h2>Welcome to the Singh Quantum Lab</h2>
-                    <p>Based at Guru Nanak Dev University in Amritsar, our research group is at the forefront of quantum information science. We focus on developing novel quantum algorithms, designing fault-tolerant quantum computing architectures, and exploring the fundamental nature of quantum entanglement. Our mission is to contribute to India's growing role in the global quantum technology landscape by conducting world-class research and training the next generation of quantum scientists and engineers.</p>
-                    <p>We employ a blend of theoretical physics and computational science to tackle complex problems in quantum simulation and cryptography. The core values of our lab are rigor, creativity, and a collaborative spirit in solving some of the most profound scientific challenges. We believe that a strong, interdisciplinary approach is key to unlocking the full potential of quantum mechanics. We invite you to explore our website to learn more about our work on superconducting qubits, quantum machine learning, and secure quantum communication.</p>
-                </section>
+        // Show the target view
+        const targetView = document.getElementById(viewId);
+        if (targetView) {
+            targetView.style.display = 'block';
+        } else {
+             // If view not found, default to home view to avoid blank page
+            const homeView = document.getElementById('home-view');
+            if(homeView) homeView.style.display = 'block';
+            viewId = 'home-view'; // Update viewId for active link styling
+        }
 
-                <!-- Research Section -->
-                <section id="research" class="page-content" tabindex="-1" aria-hidden="true">
-                    <h2>Research Projects</h2>
-                    <div class="research-project">
-                        <img src="https://placehold.co/400x300/003262/FFFFFF?text=Qubit+Design" alt="Qubit Design Visualization">
-                        <h3>Superconducting Qubit Architectures</h3>
-                        <p>Our primary focus is on the design, simulation, and fabrication of next-generation superconducting qubits. We explore novel circuit designs to enhance coherence times, reduce gate errors, and improve qubit connectivity. By minimizing environmental noise and crosstalk, we aim to build more robust and scalable quantum processors suitable for fault-tolerant quantum computation. This research involves extensive use of microwave simulation software and theoretical modeling of quantum circuits.</p>
-                        <p>Current investigations include the development of transmons with tunable couplers and the integration of 3D-cavity architectures to achieve higher fidelity operations. We collaborate closely with fabrication facilities to translate our theoretical designs into physical devices for experimental validation.</p>
-                    </div>
-                    <div class="research-project">
-                        <img src="https://placehold.co/400x300/FDB515/000000?text=Quantum+AI" alt="Quantum AI Visualization">
-                        <h3>Quantum Machine Learning Algorithms</h3>
-                        <p>This research area explores the intersection of quantum computing and artificial intelligence. We develop and analyze quantum algorithms that can offer significant speedups for machine learning tasks. Our work includes creating quantum kernels for support vector machines, designing quantum neural networks, and exploring variational quantum algorithms for optimization problems.</p>
-                        <p>We are particularly interested in applying these algorithms to real-world datasets in fields such as drug discovery and financial modeling. A key challenge we address is the development of noise-resilient algorithms that can run effectively on today's noisy intermediate-scale quantum (NISQ) devices.</p>
-                    </div>
-                    <div class="research-project">
-                        <img src="https://placehold.co/400x300/003262/FFFFFF?text=Error+Correction" alt="Quantum Error Correction Visualization">
-                        <h3>Fault-Tolerant Quantum Error Correction</h3>
-                        <p>The fragility of quantum states is a major obstacle to building large-scale quantum computers. Our group works on the theory and implementation of quantum error correction (QEC) codes. We design codes that can protect quantum information from decoherence and other errors by encoding it across multiple physical qubits.</p>
-                        <p>We are currently focused on surface codes and color codes, analyzing their performance thresholds and resource requirements. Our research also involves developing efficient decoding algorithms that can identify and correct errors in real-time, a crucial step towards achieving fault-tolerant quantum computation.</p>
-                    </div>
-                </section>
+        // Update active navigation link
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href');
+            if (linkHref === '#' + viewId) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Scroll to the top of the window
+        if (header) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    }
 
-                <!-- Publications Section -->
-                <section id="publications" class="page-content" tabindex="-1" aria-hidden="true">
-                    <h2>Publications</h2>
-                    <h3>2025</h3>
-                    <ol>
-                        <li>Kaur, J.; Singh, A.; <strong>Singh, H.</strong> "A Low-Overhead Stabilizer Code for Biased Noise in Superconducting Qubits." <em>Physical Review A</em>, <strong>112</strong>, 032301 (2025). <a href="#">[DOI]</a> <a href="#">[PDF]</a></li>
-                        <li>Singh, M.; Sharma, R.; <strong>Singh, H.</strong> "Quantum Simulation of Molecular Dynamics using a Variational Trotter-Suzuki Ansatz." <em>Journal of Chemical Theory and Computation</em>, <strong>21</strong>, 5540-5551 (2025). <a href="#">[DOI]</a> <a href="#">[PDF]</a></li>
-                    </ol>
-                    <h3>2024</h3>
-                    <ol>
-                        <li>Vikram, S.; Kumar, P.; <strong>Singh, H.</strong> "Noise-Resilient Quantum Kernels for Support Vector Machines on NISQ-era Devices." <em>Quantum</em>, <strong>8</strong>, 1255 (2024). <a href="#">[DOI]</a> <a href="#">[PDF]</a></li>
-                        <li>Anita, R.; <strong>Singh, H.</strong> "Characterizing Crosstalk in Tunable Coupler Superconducting Qubit Architectures." <em>Applied Physics Letters</em>, <strong>125</strong>, 114002 (2024). <a href="#">[DOI]</a> <a href="#">[PDF]</a></li>
-                    </ol>
-                    <h3>2023</h3>
-                    <ol>
-                        <li><strong>Singh, H.</strong>; Gupta, V. "Decoherence Mitigation via Randomized Compiling for Quantum Algorithms." <em>Physical Review Letters</em>, <strong>131</strong>, 180502 (2023). <a href="#">[DOI]</a> <a href="#">[PDF]</a></li>
-                    </ol>
-                </section>
+    // Add click event listeners to all navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const viewId = this.getAttribute('href').substring(1);
+            if (viewId) {
+                // Update URL hash for deep linking, without causing a jump
+                history.pushState(null, null, '#' + viewId);
+                showView(viewId);
+            }
+        });
+    });
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+        const hash = window.location.hash.substring(1);
+        showView(hash || 'home-view');
+    });
 
-                <!-- Group Members Section -->
-                <section id="members" class="page-content" tabindex="-1" aria-hidden="true">
-                    <h2>Our Team</h2>
-                    <div class="member-section">
-                        <h3>Principal Investigator</h3>
-                        <div class="member-block">
-                            <img src="https://placehold.co/240x240/003262/FFFFFF?text=H.S." alt="Photo of Dr. Harpreet Singh">
-                            <div class="member-info">
-                                <p class="name">Dr. Harpreet Singh</p>
-                                <p class="title">Professor of Physics</p>
-                                <p>Dr. Singh leads the Quantum Computing and Information Lab at GNDU. His research focuses on fault-tolerant quantum computation and the design of novel superconducting hardware.</p>
-                                <p><a href="mailto:hsingh.physics@gndu.ac.in">hsingh.physics@gndu.ac.in</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="member-section">
-                        <h3>Postdoctoral Scholars</h3>
-                        <div class="member-block">
-                            <img src="https://placehold.co/240x240/003262/FFFFFF?text=M.S." alt="Photo of Dr. Manpreet Singh">
-                            <div class="member-info">
-                                <p class="name">Dr. Manpreet Singh</p>
-                                <p class="title">Postdoctoral Fellow</p>
-                                <p>Manpreet's research involves developing efficient quantum algorithms for simulating complex molecular systems on near-term quantum devices.</p>
-                                <p><a href="mailto:msingh.postdoc@gndu.ac.in">msingh.postdoc@gndu.ac.in</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="member-section">
-                        <h3>Graduate Students</h3>
-                        <div class="member-block">
-                            <img src="https://placehold.co/240x240/003262/FFFFFF?text=J.K." alt="Photo of Jaspreet Kaur">
-                            <div class="member-info">
-                                <p class="name">Jaspreet Kaur</p>
-                                <p class="title">Ph.D. Candidate</p>
-                                <p>Jaspreet is working on the design and analysis of quantum error correcting codes, with a focus on topological codes for biased noise environments.</p>
-                                <p><a href="mailto:jkaur.phy@gndu.ac.in">jkaur.phy@gndu.ac.in</a></p>
-                            </div>
-                        </div>
-                        <div class="member-block">
-                            <img src="https://placehold.co/240x240/003262/FFFFFF?text=A.S." alt="Photo of Anita Sharma">
-                            <div class="member-info">
-                                <p class="name">Anita Sharma</p>
-                                <p class="title">Ph.D. Student</p>
-                                <p>Anita's research focuses on quantum machine learning, specifically on creating and testing quantum kernels for data classification problems.</p>
-                                <p><a href="mailto:asharma.phy@gndu.ac.in">asharma.phy@gndu.ac.in</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact Section -->
-                <section id="contact" class="page-content" tabindex="-1" aria-hidden="true">
-                    <h2>Get in Touch</h2>
-                    <div class="contact-info">
-                        <ul>
-                            <li><strong>Dr. Harpreet Singh</strong></li>
-                            <li>Department of Physics</li>
-                            <li>Guru Nanak Dev University</li>
-                            <li>Grand Trunk Road, Off NH 1</li>
-                            <li>Amritsar, Punjab, 143005</li>
-                            <li>India</li>
-                            <br>
-                            <li><strong>Office:</strong> Physics Building, Room 212</li>
-                            <li><strong>Lab Phone:</strong> +91-183-225XXXX</li>
-                            <li><strong>Email:</strong> <a href="mailto:hsingh.physics@gndu.ac.in">hsingh.physics@gndu.ac.in</a></li>
-                        </ul>
-                    </div>
-                    <h3>Prospective Students</h3>
-                    <p>We are always looking for motivated and talented graduate and undergraduate students to join our team. If you are interested in quantum computing, quantum information, or theoretical physics, please review our research and publications. Prospective graduate students should apply through the official GNDU Physics Department admissions process. Feel to email Dr. Singh directly with your CV and a brief statement of your research interests.</p>
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3395.96101984244!2d74.8210086151543!3d31.66221198132338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39196345a49a2631%3A0x8643231a98629587!2sGuru%20Nanak%20Dev%20University!5e0!3m2!1sen!2sin!4v1663845928151!5m2!1sen!2sin" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </section>
-            </main>
-
-            <aside class="sidebar">
-                <nav class="navigation">
-                    <ul>
-                        <li><a href="#home" class="active">Home</a></li>
-                        <li><a href="#research">Research</a></li>
-                        <li><a href="#publications">Publications</a></li>
-                        <li><a href="#members">Group Members</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="sidebar-section">
-                    <h3>Latest News</h3>
-                    <ul>
-                        <li>September 2025: Jaspreet Kaur's paper on a new error correction code is published in Physical Review A!</li>
-                        <li>August 2025: Congratulations to Dr. Manpreet Singh for his Ph.D. thesis defense!</li>
-                        <li>July 2025: The Singh Group welcomes new research scholars Anita and Vikram.</li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-
-        <footer class="site-footer">
-            © 2025 The Singh Group | Department of Physics | Guru Nanak Dev University, Amritsar
-        </footer>
-        <div class="credit">
-            <a href="https://www.sitee.in" target="_blank" rel="noopener noreferrer">Made with love by sitee</a>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.navigation a');
-            const contentSections = document.querySelectorAll('.page-content');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-
-                    contentSections.forEach(section => {
-                        section.classList.remove('active-page');
-                        section.setAttribute('aria-hidden', 'true');
-                    });
-
-                    const targetSection = document.getElementById(targetId);
-                    if (targetSection) {
-                        targetSection.classList.add('active-page');
-                        targetSection.setAttribute('aria-hidden', 'false');
-                        // Set focus to the new active section for screen readers
-                        targetSection.focus();
-                    }
-
-                    navLinks.forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-        });
-    </script>
+    // Show the initial view based on the URL hash, or default to home
+    const initialViewId = window.location.hash ? window.location.hash.substring(1) : 'home-view';
+    showView(initialViewId);
+});
+</script>
 </body>
 </html>
