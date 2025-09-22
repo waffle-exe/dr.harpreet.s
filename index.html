@@ -274,9 +274,12 @@ footer p {
     }
     nav {
         margin-top: 15px;
+        text-align: center; /* This centers the links */
+        width: 100%; /* Make nav full width to allow text-align to work */
     }
     nav a {
-        margin: 10px 15px 0 0;
+        margin: 10px 15px; /* Symmetrical margin for better centered appearance */
+        display: inline-block;
     }
     .contact-content {
         grid-template-columns: 1fr;
@@ -495,5 +498,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
 
